@@ -1,23 +1,10 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-import { HeroesComponent } from './heroes.component';
-import { DashboardComponent } from './dashboard.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { HeroesRoutes } from './app-heroes.routes';
+import { HeroesRoutes2 } from './app-heroes.routes_2';
 
 const routes: RouterConfig = [
-  {
-    path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
-  },{
-    path: 'dashboard',
-    component: DashboardComponent
-  },{
-    path: 'heroes',
-    component: HeroesComponent
-  },{
-    path: 'detail/:id',
-    component: HeroDetailComponent
-  }
+  ...HeroesRoutes,
+  ...HeroesRoutes2
 ];
 
 export const appRouterProviders = [
