@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Hero } from '../models/hero/hero';
+import { HeroService } from '../views/heroes/hero.service';
 
 import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'my-dashboard',
-  templateUrl: 'app/dashboard.component.html'
+  templateUrl: 'app/dashboard/dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];

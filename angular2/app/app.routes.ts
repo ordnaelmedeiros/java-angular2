@@ -1,10 +1,10 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-import { HeroesRoutes } from './app-heroes.routes';
-import { HeroesRoutes2 } from './app-heroes.routes_2';
+import { HeroesRoutes } from '../app/views/heroes/app-heroes.routes';
+import { DashboardRoutes } from '../app/dashboard/dashboard.routes';
 
 const routes: RouterConfig = [
-  ...HeroesRoutes,
-  ...HeroesRoutes2
+  ...DashboardRoutes,
+  ...HeroesRoutes
 ];
 
 export const appRouterProviders = [

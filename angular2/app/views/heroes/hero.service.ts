@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { Hero } from './hero';
+import { Hero } from '../../models/hero/hero';
 import { HEROES } from './mock-heroes';
 import { Headers, Http } from '@angular/http';
 
