@@ -11,9 +11,10 @@ import 'rxjs/add/operator/toPromise';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  constructor(private http: Http, private heroService: HeroService) { }
+  constructor(private heroService: HeroService) { }
   
   teste : Teste = new Teste();
+  testeErro : Teste = new Teste();
   
   ngOnInit() {
     this.heroService.getHeroes()
@@ -21,20 +22,32 @@ export class DashboardComponent implements OnInit {
 
     console.log("aqui");
     
-    this.http.get('http://localhost:8080/JavaAngular/teste')
-               .toPromise()
-               .then(response => {
-                  this.teste = response.json() as Teste;
-               })
-               .catch(this.handleError);
-    console.log(JSON.stringify(this.teste));
-  }
+    this.heroService.getPing().then(response => this.teste = response);
+    /*
+    this.heroService.getErro().then(response => {
+      this.testeErro = response;
+      console.log('aqui aqui');
+    });
+    */
 
-  private handleError(error: any) {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+    this.heroService.getPingErro(true).subscribe((response:Teste) => {
+      console.log('veio2: ' + response);
+    }, (erro:string) => {
+      console.log('erro2: ' + erro);
+    });
+    
+    this.heroService.getPingErro(false).subscribe((response:Teste) => {
+      console.log('veio: ' + response.descricao);
+    }, (erro:string) => {
+      console.log('erro: ' + erro);
+    });
     
   }
+
+  getPing2_result(response:Teste) {
+    console.log(response.descricao);
+  }
+ 
   gotoDetail() { /* not implemented yet */}
   
 }
