@@ -1,4 +1,4 @@
-package com.medeiros.ordnael.javaangular.controller;
+package com.medeiros.ordnael.javaangular.core.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
