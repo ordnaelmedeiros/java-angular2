@@ -76,17 +76,19 @@ public class Resource<Model> implements Closeable {
 
 	@Override
 	public void close() throws IOException {
-//		
-//		if (this.getEm().getTransaction().isActive()) {
-//			try {
-//				this.getEm().getTransaction().commit();
-//			} catch (Exception e) {
-//				this.getEm().getTransaction().rollback();
-//				this.getEm().close();
-//				throw e;
-//			}
-//		}
-//		
+		
+		if (this.getEm().getTransaction().isActive()) {
+			try {
+				this.getEm().getTransaction().commit();
+			} catch (Exception e) {
+				try {
+					this.getEm().getTransaction().rollback();
+				} catch (Exception e2) {}
+				this.getEm().close();
+				throw e;
+			}
+		}
+		
 		this.getEm().close();
 	}
 

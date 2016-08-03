@@ -1,0 +1,19 @@
+<h1>Disciplina</h1>
+
+Código: {{disciplina.disciplinaId}} 
+<br/>
+<br/>
+Descrição: <input [(ngModel)]="disciplina.descricao" />
+
+<br/>
+<br/>
+<button (click)="onSalvar()" >Salvar</button>
+
+<br/>
+<br/>
+
+<ul>
+    <li *ngFor="let dis of disciplinas">
+        <span class="badge">{{dis.disciplinaId}}</span> {{dis.descricao}} <button (click)="onSelect(dis)">Editar</button> <button (click)="onExcluir(dis)">Excluir</button>
+    </li>
+</ul>

@@ -11,20 +11,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan(basePackages = "com.medeiros.ordnael.javaangular.controller")
 public class AppConfiguration extends WebMvcConfigurerAdapter {
 
+	
+	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-
-		/*
-		 * 'Access-Control-Allow-Origin': 'https://192.168.50.150:3333',
-		 * 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH,
-		 * DELETE', 'Access-Control-Allow-Headers': 'X-Requested-With',
-		 * 'Access-Control-Allow-Credentials': 'true'
-		 */
-
-		registry.addMapping("/**").allowedOrigins("*")
-				.allowedMethods("GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE").allowedHeaders("X-Requested-With")
+		
+		registry.addMapping("/**")
+				.allowedOrigins("*")
+				.allowedMethods("*")
+				.allowedHeaders("*")
 				// .exposedHeaders("header1", "header2")
 				.allowCredentials(false).maxAge(3600);
+		
+		
 	}
-
+	
 }

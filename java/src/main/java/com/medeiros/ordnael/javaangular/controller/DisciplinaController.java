@@ -10,7 +10,6 @@ import com.medeiros.ordnael.javaangular.models.Disciplina;
 @RequestMapping("/disciplina")
 public class DisciplinaController extends ControllerCRUDGeneric<Disciplina> {
 
-	@Override
 	public Class<Disciplina> getClasse() {
 		return Disciplina.class;
 	}

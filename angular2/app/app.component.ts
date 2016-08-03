@@ -3,6 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { HeroService }     from './views/heroes/hero.service';
 @Component({
   selector: 'my-app',
+  /*
   template: `
      <h1>{{title}}</h1>
   <nav>
@@ -12,6 +13,8 @@ import { HeroService }     from './views/heroes/hero.service';
   <router-outlet></router-outlet>
   `,
   styleUrls: ['app/app.component.css'],
+  */
+  templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES],
   providers: [
     HeroService
